@@ -9,7 +9,7 @@ const replayStory = document.querySelector('#replay-story');
 const closeOpening = () => {
   opening?.classList.add('is-complete');
   document.body.classList.remove('opening-active');
-  window.setTimeout(() => opening?.remove(), 900);
+  opening?.setAttribute('aria-hidden', 'true');
 };
 
 if (opening) {
@@ -23,7 +23,15 @@ if (opening) {
 }
 
 replayStory?.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (!opening) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+  opening.classList.remove('is-complete');
+  opening.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('opening-active');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  window.setTimeout(closeOpening, 6500);
 });
 
 const revealObserver = new IntersectionObserver((entries, observer) => {
