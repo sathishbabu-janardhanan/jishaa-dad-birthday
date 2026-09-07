@@ -2,6 +2,24 @@ const reveals = document.querySelectorAll('.reveal');
 const progressBar = document.querySelector('#progress-bar');
 const chapterLinks = document.querySelectorAll('.chapter-timeline a');
 const chapters = document.querySelectorAll('.new-chapter[data-year], .dad-message[data-year]');
+const opening = document.querySelector('.storybook-opening');
+const openingSkip = document.querySelector('.opening-skip');
+
+const closeOpening = () => {
+  opening?.classList.add('is-complete');
+  document.body.classList.remove('opening-active');
+  window.setTimeout(() => opening?.remove(), 900);
+};
+
+if (opening) {
+  document.body.classList.add('opening-active');
+  openingSkip?.addEventListener('click', closeOpening);
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    closeOpening();
+  } else {
+    window.setTimeout(closeOpening, 6500);
+  }
+}
 
 const revealObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
