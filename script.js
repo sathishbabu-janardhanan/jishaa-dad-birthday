@@ -4,6 +4,7 @@ const chapterLinks = document.querySelectorAll('.chapter-timeline a');
 const chapters = document.querySelectorAll('.new-chapter[data-year], .dad-message[data-year]');
 const opening = document.querySelector('.storybook-opening');
 const openingSkip = document.querySelector('.opening-skip');
+const replayStory = document.querySelector('#replay-story');
 
 const closeOpening = () => {
   opening?.classList.add('is-complete');
@@ -20,6 +21,10 @@ if (opening) {
     window.setTimeout(closeOpening, 6500);
   }
 }
+
+replayStory?.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
 const revealObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
