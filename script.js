@@ -6,57 +6,6 @@ const opening = document.querySelector('.storybook-opening');
 const openingSkip = document.querySelector('.opening-skip');
 const replayStory = document.querySelector('#replay-story');
 
-const imageInventory = [
-  {
-    file: 'assets/8A691CDA-2CD7-4BF6-A843-15FEBD794D8B_1_105_c 2.jpeg',
-    usedIn: ['opening', 'chapter-01', 'chapter-08', 'montage'],
-    chapter: 'Chapter 01 / Chapter 08',
-    currentYearLabel: '2016',
-    alt: 'Baby Jishaa resting on a colorful blanket',
-    yearExplicitlyKnown: true
-  },
-  {
-    file: 'assets/852BC40E-C2A4-404F-9317-304C58494FBE_1_105_c 2.jpeg',
-    usedIn: ['chapter-01'],
-    chapter: 'Chapter 01',
-    currentYearLabel: null,
-    alt: 'Dad holding and smiling with baby Jishaa',
-    yearExplicitlyKnown: false
-  },
-  {
-    file: 'assets/F75C6482-3452-4AE1-BF57-35CE42D8E7C2 2.jpeg',
-    usedIn: ['chapter-01'],
-    chapter: 'Chapter 01',
-    currentYearLabel: null,
-    alt: 'Dad and baby Jishaa sharing a close moment',
-    yearExplicitlyKnown: false
-  },
-  {
-    file: 'assets/71EE08DA-46D1-4B65-A377-E92B7F4A1136_1_105_c.jpeg',
-    usedIn: ['chapter-02'],
-    chapter: 'Chapter 02',
-    currentYearLabel: null,
-    alt: 'Jishaa learning to skate',
-    yearExplicitlyKnown: false
-  },
-  {
-    file: 'assets/11BB57B6-09C9-4758-A8AE-E01522E7E20E_1_105_c.jpeg',
-    usedIn: ['chapter-02'],
-    chapter: 'Chapter 02',
-    currentYearLabel: null,
-    alt: 'Jishaa climbing an indoor wall',
-    yearExplicitlyKnown: false
-  },
-  {
-    file: 'assets/32D3E3A3-0EDA-48BE-B614-C01B724E0D70_1_105_c.jpeg',
-    usedIn: ['chapter-02'],
-    chapter: 'Chapter 02',
-    currentYearLabel: null,
-    alt: 'Jishaa exploring a colorful play train',
-    yearExplicitlyKnown: false
-  }
-];
-
 const memoryArchive = {
   // The archive uses only the explicitly year-labelled photo in assets/last page.
   2016: [{ image: 'assets/Last page/2016.jpeg', caption: '2016 memory', year: '2016', verified: true, label: '2016' }],
@@ -132,6 +81,32 @@ const progressObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.55 });
 
 chapters.forEach((chapter) => progressObserver.observe(chapter));
+
+const achievementBoard = document.querySelector('[data-achievements]');
+const achievementObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('is-unlocking');
+    observer.unobserve(entry.target);
+  });
+}, { threshold: 0.35 });
+
+if (achievementBoard) achievementObserver.observe(achievementBoard);
+
+const chapter08 = document.querySelector('#chapter-08');
+const timelineYears = [...document.querySelectorAll('.chapter-timeline a[data-year]')];
+const chapter08Observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    timelineYears.forEach((link, index) => {
+      window.setTimeout(() => link.classList.add('is-flashing'), index * 90);
+      window.setTimeout(() => link.classList.remove('is-flashing'), index * 90 + 430);
+    });
+    observer.unobserve(entry.target);
+  });
+}, { threshold: 0.55 });
+
+if (chapter08) chapter08Observer.observe(chapter08);
 
 const updateProgress = () => {
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
