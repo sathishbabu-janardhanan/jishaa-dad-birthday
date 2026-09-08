@@ -59,22 +59,22 @@ const imageInventory = [
 
 const memoryArchive = {
   // The archive uses only the explicitly year-labelled photo in assets/last page.
-  2016: [{ image: 'assets/last page/2016.jpeg', caption: '2016 memory', year: '2016', verified: true, label: '2016' }],
-  2017: [{ image: 'assets/last page/2017.JPG', caption: '2017 memory', year: '2017', verified: true, label: '2017' }],
-  2018: [{ image: 'assets/last page/2018.jpg', caption: '2018 memory', year: '2018', verified: true, label: '2018' }],
-  2019: [{ image: 'assets/last page/2019.jpg', caption: '2019 memory', year: '2019', verified: true, label: '2019' }],
-  2020: [{ image: 'assets/last page/2020.jpg', caption: '2020 memory', year: '2020', verified: true, label: '2020' }],
-  2021: [{ image: 'assets/last page/2021.jpg', caption: '2021 memory', year: '2021', verified: true, label: '2021' }],
-  2022: [{ image: 'assets/last page/2022.jpg', caption: '2022 memory', year: '2022', verified: true, label: '2022' }],
-  2023: [{ image: 'assets/last page/2023.jpeg', caption: '2023 memory', year: '2023', verified: true, label: '2023' }],
-  2024: [{ image: 'assets/last page/2024.jpeg', caption: '2024 memory', year: '2024', verified: true, label: '2024' }],
-  2025: [{ image: 'assets/last page/2025.jpeg', caption: '2025 memory', year: '2025', verified: true, label: '2025' }],
-  2026: [{ image: 'assets/last page/2026.jpeg', caption: '2026 memory', year: '2026', verified: true, label: '2026' }]
+  2016: [{ image: 'assets/Last page/2016.jpeg', caption: '2016 memory', year: '2016', verified: true, label: '2016' }],
+  2017: [{ image: 'assets/Last page/2017.JPG', caption: '2017 memory', year: '2017', verified: true, label: '2017' }],
+  2018: [{ image: 'assets/Last page/2018.jpg', caption: '2018 memory', year: '2018', verified: true, label: '2018' }],
+  2019: [{ image: 'assets/Last page/2019.jpg', caption: '2019 memory', year: '2019', verified: true, label: '2019' }],
+  2020: [{ image: 'assets/Last page/2020.jpg', caption: '2020 memory', year: '2020', verified: true, label: '2020' }],
+  2021: [{ image: 'assets/Last page/2021.jpg', caption: '2021 memory', year: '2021', verified: true, label: '2021' }],
+  2022: [{ image: 'assets/Last page/2022.jpg', caption: '2022 memory', year: '2022', verified: true, label: '2022' }],
+  2023: [{ image: 'assets/Last page/2023.jpeg', caption: '2023 memory', year: '2023', verified: true, label: '2023' }],
+  2024: [{ image: 'assets/Last page/2024.jpeg', caption: '2024 memory', year: '2024', verified: true, label: '2024' }],
+  2025: [{ image: 'assets/Last page/2025.jpeg', caption: '2025 memory', year: '2025', verified: true, label: '2025' }],
+  2026: [{ image: 'assets/Last page/2026.jpeg', caption: '2026 memory', year: '2026', verified: true, label: '2026' }]
 };
 
 const chapterComparisonMemory = {
   leftYear: '2016',
-  leftImage: 'assets/last page/2016.jpeg',
+  leftImage: 'assets/Last page/2016.jpeg',
   leftCaption: 'Baby Jishaa resting on a colorful blanket',
   rightLabel: 'Age 10',
   rightImage: null,
